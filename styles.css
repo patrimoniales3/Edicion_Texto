@@ -1,0 +1,178 @@
+/* styles.css - Estilos que se inyectan en las páginas web */
+
+/* Estilos para las notificaciones de la extensión */
+.text-editor-notification {
+    position: fixed !important;
+    top: 20px !important;
+    right: 20px !important;
+    background: #333 !important;
+    color: white !important;
+    padding: 12px 16px !important;
+    border-radius: 6px !important;
+    font-size: 14px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    z-index: 2147483647 !important; /* Máximo z-index posible */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+    animation: textEditorSlideIn 0.3s ease-out !important;
+    pointer-events: none !important;
+    max-width: 300px !important;
+    word-wrap: break-word !important;
+}
+
+/* Animaciones para las notificaciones */
+@keyframes textEditorSlideIn {
+    from {
+        transform: translateX(100%) !important;
+        opacity: 0 !important;
+    }
+    to {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+}
+
+@keyframes textEditorSlideOut {
+    from {
+        transform: translateX(0) !important;
+        opacity: 1 !important;
+    }
+    to {
+        transform: translateX(100%) !important;
+        opacity: 0 !important;
+    }
+}
+
+/* Estilos para resaltar texto seleccionado cuando está siendo procesado */
+.text-editor-processing {
+    background-color: rgba(102, 126, 234, 0.2) !important;
+    transition: background-color 0.3s ease !important;
+}
+
+/* Estilos para el overlay de reemplazo rápido (si se implementa) */
+.text-editor-replace-overlay {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: white !important;
+    border: 1px solid #e9ecef !important;
+    border-radius: 8px !important;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.3) !important;
+    z-index: 2147483646 !important;
+    padding: 20px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    min-width: 300px !important;
+}
+
+.text-editor-replace-overlay h3 {
+    margin: 0 0 15px 0 !important;
+    font-size: 16px !important;
+    color: #333 !important;
+}
+
+.text-editor-replace-overlay input {
+    width: 100% !important;
+    padding: 8px 12px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    margin-bottom: 10px !important;
+    font-size: 14px !important;
+    font-family: inherit !important;
+}
+
+.text-editor-replace-overlay button {
+    padding: 8px 16px !important;
+    margin: 5px !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-family: inherit !important;
+}
+
+.text-editor-replace-overlay .replace-btn {
+    background: #28a745 !important;
+    color: white !important;
+}
+
+.text-editor-replace-overlay .cancel-btn {
+    background: #6c757d !important;
+    color: white !important;
+}
+
+.text-editor-replace-overlay button:hover {
+    opacity: 0.9 !important;
+}
+
+/* Overlay de fondo para modales */
+.text-editor-overlay-bg {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0,0,0,0.5) !important;
+    z-index: 2147483645 !important;
+}
+
+/* Indicador visual cuando la extensión está deshabilitada */
+.text-editor-disabled-indicator {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: #dc3545 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+    z-index: 2147483647 !important;
+    opacity: 0.8 !important;
+    pointer-events: none !important;
+}
+
+/* Estilos para campos de texto que están siendo editados */
+input:focus.text-editor-active,
+textarea:focus.text-editor-active,
+[contenteditable="true"]:focus.text-editor-active {
+    outline: 2px solid rgba(102, 126, 234, 0.5) !important;
+    outline-offset: 1px !important;
+}
+
+/* Prevenir conflictos con otros estilos de la página */
+.text-editor-notification *,
+.text-editor-replace-overlay *,
+.text-editor-disabled-indicator * {
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    background: transparent !important;
+    color: inherit !important;
+    font: inherit !important;
+    line-height: 1.4 !important;
+    text-align: left !important;
+    text-decoration: none !important;
+    text-transform: none !important;
+    letter-spacing: normal !important;
+    word-spacing: normal !important;
+}
+
+/* Restablecer estilos específicos para elementos dentro de nuestros componentes */
+.text-editor-notification,
+.text-editor-replace-overlay,
+.text-editor-disabled-indicator {
+    all: initial !important;
+    position: fixed !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+/* Asegurar que nuestros estilos tengan prioridad sobre cualquier framework CSS */
+body .text-editor-notification,
+html body .text-editor-notification,
+body .text-editor-replace-overlay,
+html body .text-editor-replace-overlay {
+    all: unset !important;
+    display: block !important;
+    position: fixed !important;
+}

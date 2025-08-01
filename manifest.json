@@ -1,0 +1,51 @@
+{
+  "manifest_version": 3,
+  "name": "Edición de Texto",
+  "version": "1.0",
+  "description": "Extensión para edición avanzada de texto con atajos de teclado y plantillas",
+  "permissions": [
+    "activeTab",
+    "storage",
+    "scripting"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"]
+    }
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Edición de Texto"
+  },
+  "commands": {
+    "sentence-case": {
+      "suggested_key": {
+        "default": "Alt+Shift+S"
+      },
+      "description": "Tipo oración"
+    },
+    "lowercase": {
+      "suggested_key": {
+        "default": "Alt+Shift+L"
+      },
+      "description": "minúsculas"
+    },
+    "uppercase": {
+      "suggested_key": {
+        "default": "Alt+Shift+U"
+      },
+      "description": "MAYÚSCULAS"
+    },
+    "replace-text": {
+      "suggested_key": {
+        "default": "Alt+Shift+R"
+      },
+      "description": "Reemplazar texto"
+    }
+  }
+}
