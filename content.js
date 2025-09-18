@@ -95,41 +95,13 @@
                     applyUpperCase();
                     handled = true;
                     break;
-                case 'r':
-                    e.preventDefault();
-                    // Reemplazo directo usando configuración
-                    chrome.storage.sync.get(['findText', 'replaceWith'], (result) => {
-                        const findText = result.findText || '';
-                        const replaceWith = result.replaceWith || '';
-                        if (findText) {
-                            const selection = window.getSelection();
-                            let selectedText = selection ? selection.toString() : '';
-                            if (selectedText) {
-                                const replaced = selectedText.split(findText).join(replaceWith);
-                                // Copiar al portapapeles
-                                copyToClipboard(replaced);
-                                // Opcional: pegar en el campo activo si es input/textarea/contentEditable
-                                if (isInputField && document.activeElement) {
-                                    document.activeElement.value = replaced;
-                                }
-                            }
-                        }
-                    });
-                    handled = true;
-                    break;
+                // Atajo Alt+Shift+R eliminado
             }
             if (handled) {
                 e.stopPropagation();
             }
         }
-    function copyToClipboard(text) {
-        const temp = document.createElement('textarea');
-        temp.value = text;
-        document.body.appendChild(temp);
-        temp.select();
-        document.execCommand('copy');
-        document.body.removeChild(temp);
-    }
+    // copyToClipboard eliminado (funcionalidad de reemplazo rápido retirada)
     }
 
     function saveSelection() {

@@ -32,9 +32,7 @@ chrome.commands.onCommand.addListener((command) => {
                     case 'uppercase':
                         chrome.tabs.sendMessage(tabs[0].id, { action: 'upperCase' });
                         break;
-                    case 'replace-text':
-                        chrome.tabs.sendMessage(tabs[0].id, { action: 'showReplace' });
-                        break;
+                    // case 'replace-text' eliminado (atajo de reemplazo rápido removido)
                 }
             }
         });

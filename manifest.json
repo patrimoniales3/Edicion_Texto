@@ -25,7 +25,7 @@
   "commands": {
     "sentence-case": {
       "suggested_key": {
-        "default": "Alt+Shift+S"
+        "default": "Alt+Shift+R"
       },
       "description": "Tipo oración"
     },
@@ -40,12 +40,6 @@
         "default": "Alt+Shift+U"
       },
       "description": "MAYÚSCULAS"
-    },
-    "replace-text": {
-      "suggested_key": {
-        "default": "Alt+Shift+R"
-      },
-      "description": "Reemplazar texto"
     }
   }
 }
